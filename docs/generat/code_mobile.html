@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>PixelPrat - Catalog</title>
+<!-- Google Fonts: Nunito -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#F4F1EA',
+            navy: '#2C2E45',
+            softBlue: '#7A9ECC',
+            peach: '#F2C6B8',
+            greyBlue: '#9BA4C4',
+            olive: '#6B705C',
+          },
+          fontFamily: {
+            sans: ['Nunito', 'sans-serif'],
+          },
+          borderRadius: {
+            'card': '12px',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-utilities">
+    /* Hide horizontal scrollbar for clean chip row */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    body {
+      background-color: #F4F1EA;
+      color: #2C2E45;
+      font-family: 'Nunito', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-cream text-navy min-h-screen flex flex-col items-center selection:bg-peach selection:text-navy">
+<!-- Mobile screen container restricted to iOS portrait viewport width -->
+<div class="w-full max-w-[390px] min-h-screen flex flex-col bg-cream shadow-sm relative border-x border-[#9BA4C4]/20">
+<!-- BEGIN: Header -->
+<header class="sticky top-0 z-50 bg-cream border-b border-greyBlue/30 px-4 py-3 flex items-center justify-between backdrop-blur-md bg-opacity-95">
+<!-- Left: Logo & Brand -->
+<a aria-label="PixelPrat Home" class="flex items-center gap-2" href="#">
+<svg class="w-6 h-6 text-navy flex-shrink-0" fill="currentColor" viewbox="0 0 24 24">
+<path d="M7 4h10a5 5 0 0 1 5 5v5a5 5 0 0 1-5 5h-1.5l-2-2H10.5l-2 2H7a5 5 0 0 1-5-5V9a5 5 0 0 1 5-5zm1 6v1H7v2h1v1h2v-1h1v-2h-1v-1H8zm8 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm2 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path>
+</svg>
+<span class="font-extrabold text-xl tracking-tight text-navy">PixelPrat</span>
+</a>
+<!-- Right: Navigation Icons -->
+<div class="flex items-center gap-3">
+<!-- Compact Catalog Text link -->
+<a class="text-sm font-bold text-navy border-b-2 border-softBlue pb-0.5" href="#">Catalog</a>
+<!-- User Profile Avatar Button -->
+<button aria-label="Account profile" class="w-8 h-8 rounded-full flex items-center justify-center text-navy hover:opacity-80 transition">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M12 2a5 5 0 100 10 5 5 0 000-10zm-7 18a7 7 0 0114 0H5z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<!-- Shopping Cart with Peach Count Badge -->
+<button aria-label="Shopping Cart" class="relative w-8 h-8 flex items-center justify-center text-navy hover:opacity-80 transition">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<!-- Cart Count Badge -->
+<span class="absolute -top-1 -right-1.5 bg-peach text-navy font-extrabold text-[11px] w-5 h-5 rounded-full flex items-center justify-center shadow-sm">
+            3
+          </span>
+</button>
+</div>
+</header>
+<!-- END: Header -->
+<!-- BEGIN: MainContent -->
+<main class="flex-grow px-4 pt-5 pb-8">
+<!-- Catalog Page Title Header -->
+<section class="mb-4" data-purpose="catalog-heading">
+<h1 class="text-[28px] font-extrabold text-navy leading-tight">Catalog</h1>
+<p class="text-sm font-semibold text-greyBlue mt-0.5">Cozy games for every mood</p>
+</section>
+<!-- Search Bar -->
+<section class="mb-4" data-purpose="search-bar">
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-greyBlue">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<input class="w-full bg-cream border border-greyBlue text-navy text-sm placeholder-greyBlue rounded-lg pl-10 pr-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-softBlue focus:border-transparent transition-all" placeholder="Search games by name..." type="text"/>
+</div>
+</section>
+<!-- Category Filter Chips -->
+<section class="mb-3" data-purpose="category-filters">
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+<!-- All Chip (Active) -->
+<button class="px-5 py-1.5 bg-peach text-navy font-bold text-xs rounded-full whitespace-nowrap shadow-sm border border-peach/50 flex-shrink-0">
+            All
+          </button>
+<!-- Adventure Chip -->
+<button class="px-4 py-1.5 bg-cream text-navy font-semibold text-xs rounded-full border border-greyBlue whitespace-nowrap hover:bg-cream/70 flex-shrink-0">
+            Adventure
+          </button>
+<!-- Action Chip -->
+<button class="px-4 py-1.5 bg-cream text-navy font-semibold text-xs rounded-full border border-greyBlue whitespace-nowrap hover:bg-cream/70 flex-shrink-0">
+            Action
+          </button>
+<!-- Strategy Chip -->
+<button class="px-4 py-1.5 bg-cream text-navy font-semibold text-xs rounded-full border border-greyBlue whitespace-nowrap hover:bg-cream/70 flex-shrink-0">
+            Strategy
+          </button>
+</div>
+</section>
+<!-- Result Count Info -->
+<div class="flex justify-between items-center mb-4">
+<span class="text-xs font-semibold text-greyBlue">Showing 12 of 12 games</span>
+</div>
+<!-- Single Column Game Card Stack -->
+<div class="space-y-4" data-purpose="product-list">
+<!-- 1. Last Lantern -->
+<article class="bg-cream border border-greyBlue rounded-card p-3 shadow-sm flex flex-col justify-between" data-purpose="game-card">
+<div>
+<div class="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-navy/5 mb-3">
+<img alt="Last Lantern Cover" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhXmQGeUwgp5Gmu4_p8m7UphMZoq8CTyWoTF61mmH0Iv5hys7hW1oTlYONKXWVVrFnuF7BiH_BMwboz7pKo0XUMmbUPDO4uHJ-Z-Eagk7iyy9nTTx69bpFfg925LIRJ-mxfD6MMVS-c2kESECrr_PpsrptFwkEvTF6P-4uCTMQsu4PIbjkAIH3qwwC-Ml_yfEKDWu3SqLkRQG84EKP3PdYly0Z_cBkSSINkyiWi1U4_RO1UtU9fPaHuw"/>
+</div>
+<span class="text-[11px] font-bold text-olive uppercase tracking-wider block">ADVENTURE</span>
+<h2 class="text-lg font-extrabold text-navy mt-0.5">Last Lantern</h2>
+<p class="text-xs text-greyBlue mt-1 font-medium leading-relaxed">Guide a tiny spirit through a whispering autumn woods.</p>
+</div>
+<div class="mt-4 flex items-center justify-between gap-3">
+<span class="px-2.5 py-1 bg-peach/40 text-navy font-extrabold text-sm rounded-lg">24.99 €</span>
+<button class="flex-1 py-2 px-4 bg-softBlue text-navy font-bold text-sm rounded-lg shadow-sm hover:brightness-95 active:scale-[0.98] transition text-center">
+              Add to cart
+            </button>
+</div>
+</article>
+<!-- 2. Moonlit Trails -->
+<article class="bg-cream border border-greyBlue rounded-card p-3 shadow-sm flex flex-col justify-between" data-purpose="game-card">
+<div>
+<div class="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-navy/5 mb-3">
+<img alt="Moonlit Trails Cover" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6OCjz92_SL8Z2eP9dKLyJzbZsvjPjqR90z3PWVHxa3uIdpLdr4W6YDtYqRaBnoDIS1t2zfEoMabtMvg_3MzhEZTj1V0SGzcQeA4f-rGnRFZtKkJTlpn9Os5T1rSK53KRT6buAmEDUKXuDE3SNe70LVENGWSpxERMupQv3nrbtr2LeIgIFuhDh7ecSefbFeXf1uTwedh1OX4YaPD6lMLP-dGGb4oqNkwvcOYQPJT3i9_NTXIm5xPuopg"/>
+</div>
+<span class="text-[11px] font-bold text-olive uppercase tracking-wider block">ADVENTURE</span>
+<h2 class="text-lg font-extrabold text-navy mt-0.5">Moonlit Trails</h2>
+<p class="text-xs text-greyBlue mt-1 font-medium leading-relaxed">A quiet nocturnal hike filled with friendly critters.</p>
+</div>
+<div class="mt-4 flex items-center justify-between gap-3">
+<span class="px-2.5 py-1 bg-peach/40 text-navy font-extrabold text-sm rounded-lg">19.99 €</span>
+<button class="flex-1 py-2 px-4 bg-softBlue text-navy font-bold text-sm rounded-lg shadow-sm hover:brightness-95 active:scale-[0.98] transition text-center">
+              Add to cart
+            </button>
+</div>
+</article>
+<!-- 3. Sky Drifters -->
+<article class="bg-cream border border-greyBlue rounded-card p-3 shadow-sm flex flex-col justify-between" data-purpose="game-card">
+<div>
+<div class="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-navy/5 mb-3">
+<img alt="Sky Drifters Cover" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2EXC3cQuuAPXXM2Yc4sWCRKyf-UYOgyoXS7MtYsMX3HtxzC0xLQwiBtzzZKy1WvbJJCmr6tXG3BwV4-Lbs0IGTPHBeO5hY03bVADSonzpEocSDy-93V3OAzKga1EtrWPcPOSkZ1Pz7cvcTjQwiKOWtNzqgbJ4SNL7lJSEKuhW9ZxIh6qaFd-vGUoSROicDt56NcAkk8cgMvEZ52qPVMLtGiDRoE34IE-RW-7GqLwo1zeWUsTqm53ipw"/>
+</div>
+<span class="text-[11px] font-bold text-olive uppercase tracking-wider block">ADVENTURE</span>
+<h2 class="text-lg font-extrabold text-navy mt-0.5">Sky Drifters</h2>
+<p class="text-xs text-greyBlue mt-1 font-medium leading-relaxed">Float above pastel peaks in an origami hot air ship.</p>
+</div>
+<div class="mt-4 flex items-center justify-between gap-3">
+<span class="px-2.5 py-1 bg-peach/40 text-navy font-extrabold text-sm rounded-lg">22.50 €</span>
+<button class="flex-1 py-2 px-4 bg-softBlue text-navy font-bold text-sm rounded-lg shadow-sm hover:brightness-95 active:scale-[0.98] transition text-center">
+              Add to cart
+            </button>
+</div>
+</article>
+<!-- 4. Forgotten Isle (SOLD OUT) -->
+<article class="bg-cream border border-greyBlue rounded-card p-3 shadow-sm flex flex-col justify-between" data-purpose="game-card">
+<div>
+<div class="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-navy/5 mb-3">
+<img alt="Forgotten Isle Cover" class="w-full h-full object-cover opacity-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-fbHX7gbcfEtHeWSk-COF2xY8Dfbf2MM_EkiS7Hrk5Tt4GgN-dg6MpeEjRUDns0wPX5EpQPzDQK5F93SMd9aCdmHzYhpidiYIjLuSNI2J64ImPU091Iqtr3L3vIECEkq5cHLv4O2uHAsDcj14T7b86preLUjNaanE-SOd27sUPbzf7mT4y-86fwBsO8nx2DiGMYFiBpIpapUWpInNCgOfcCC5LzpVLezjH_QAYcS_Ko0a71l9JqI2nA"/>
+<!-- Sold out pill badge -->
+<span class="absolute top-2.5 left-2.5 bg-olive text-cream text-[10px] font-extrabold px-2.5 py-1 rounded-full shadow-sm tracking-wide">
+                Sold out
+              </span>
+</div>
+<span class="text-[11px] font-bold text-olive uppercase tracking-wider block">ADVENTURE</span>
+<h2 class="text-lg font-extrabold text-navy mt-0.5">Forgotten Isle</h2>
+<p class="text-xs text-greyBlue mt-1 font-medium leading-relaxed">Uncover botanical wonders on a sunny lost archipelago.</p>
+</div>
+<div class="mt-4 flex items-center justify-between gap-3">
+<span class="px-2.5 py-1 bg-peach/40 text-navy font-extrabold text-sm rounded-lg">18.00 €</span>
+<button class="flex-1 py-2 px-4 bg-greyBlue text-navy font-bold text-sm rounded-lg cursor-not-allowed opacity-90 text-center" disabled="">
+              Sold out
+            </button>
+</div>
+</article>
+<!-- 5. Neon Rush -->
+<article class="bg-cream border border-greyBlue rounded-card p-3 shadow-sm flex flex-col justify-between" data-purpose="game-card">
+<div>
+<div class="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-navy/5 mb-3">
+<img alt="Neon Rush Cover" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAYGY6Ls4q3OAb4fDTUYJRBdKuviEeC-9ZL0vSYoYhd_DgYmM7xOddipvD4ryQIjGjAZydpY1N_eE-991axogVOhhsKXH5MYq2RZ-1l-No632b05bR-6PGEvak3wdBp7ItnLeWbN0b2u4APIGyHOqzWQGqdNYCx6hy5DWwd4YxvENtDC0HTwjk_uTq0qgjZk3c9H_1NtwpBwpkbds1S2K7Xxn6MVyAyJBMEyXDWN3Q-navgCa1z54iEA"/>
+</div>
+<span class="text-[11px] font-bold text-olive uppercase tracking-wider block">ACTION</span>
+<h2 class="text-lg font-extrabold text-navy mt-0.5">Neon Rush</h2>
+<p class="text-xs text-greyBlue mt-1 font-medium leading-relaxed">Glide along midnight rooftops with lo-fi beats.</p>
+</div>
+<div class="mt-4 flex items-center justify-between gap-3">
+<span class="px-2.5 py-1 bg-peach/40 text-navy font-extrabold text-sm rounded-lg">16.99 €</span>
+<button class="flex-1 py-2 px-4 bg-softBlue text-navy font-bold text-sm rounded-lg shadow-sm hover:brightness-95 active:scale-[0.98] transition text-center">
+              Add to cart
+            </button>
+</div>
+</article>
+<!-- 6. Iron Vanguard -->
+<article class="bg-cream border border-greyBlue rounded-card p-3 shadow-sm flex flex-col justify-between" data-purpose="game-card">
+<div>
+<div class="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-navy/5 mb-3">
+<img alt="Iron Vanguard Cover" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrLNZfzbifKiw2Xm7lU7v5O3lFl31mLhDokeRxF_tNAssi5V_mFpVkkl028g3XHD-U_Gnkfs01JJq1sR63aTEGBVl2XPnIbiFwTAh8gz2vGHwENleVgI-f23qpIYiO5Oj76ekIKZdJoh3YiHpP6bCcfBgqqFCsIClB7SytUmyUiU2hiRlhdsc4mBxF89LOkyv1H0LBYaYjT9OVD0jp4MHOyO51o-Fx2JZdESkXySGS8LDLNTZ3_ixXZw"/>
+</div>
+<span class="text-[11px] font-bold text-olive uppercase tracking-wider block">ACTION</span>
+<h2 class="text-lg font-extrabold text-navy mt-0.5">Iron Vanguard</h2>
+<p class="text-xs text-greyBlue mt-1 font-medium leading-relaxed">Protect a tranquil valley with your friendly clockwork golem.</p>
+</div>
+<div class="mt-4 flex items-center justify-between gap-3">
+<span class="px-2.5 py-1 bg-peach/40 text-navy font-extrabold text-sm rounded-lg">27.50 €</span>
+<button class="flex-1 py-2 px-4 bg-softBlue text-navy font-bold text-sm rounded-lg shadow-sm hover:brightness-95 active:scale-[0.98] transition text-center">
+              Add to cart
+            </button>
+</div>
+</article>
+<!-- 7. Shadow Dojo -->
+<article class="bg-cream border border-greyBlue rounded-card p-3 shadow-sm flex flex-col justify-between" data-purpose="game-card">
+<div>
+<div class="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-navy/5 mb-3">
+<img alt="Shadow Dojo Cover" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAezN1F4wNtgE7DbHkfysreoed4U7wqSWzBB2h-IdBFUxO_sqEuWtXe8Eqvo2IPn3fG6Evn6a9m-RiFa1lxrSb3HEZew2V4NmlbsE6pbf3in-qB4KXUiLqVgE3Ykfl5Ma_Nel64nnN2949ULi3BbaKNMxMb1Amt0WIREev1hfCiTt6N_UgD2p2CfX6ZPKagoki4kJgggZhdPj_1Mc-leSMDnazQEStP6zdBjQwTuh1xtg2GMbcwWnUU2A"/>
+</div>
+<span class="text-[11px] font-bold text-olive uppercase tracking-wider block">ACTION</span>
+<h2 class="text-lg font-extrabold text-navy mt-0.5">Shadow Dojo</h2>
+<p class="text-xs text-greyBlue mt-1 font-medium leading-relaxed">Master graceful leaf katas under cherry blossom trees.</p>
+</div>
+<div class="mt-4 flex items-center justify-between gap-3">
+<span class="px-2.5 py-1 bg-peach/40 text-navy font-extrabold text-sm rounded-lg">21.00 €</span>
+<button class="flex-1 py-2 px-4 bg-softBlue text-navy font-bold text-sm rounded-lg shadow-sm hover:brightness-95 active:scale-[0.98] transition text-center">
+              Add to cart
+            </button>
+</div>
+</article>
+<!-- 8. Crimson Arena (SOLD OUT) -->
+<article class="bg-cream border border-greyBlue rounded-card p-3 shadow-sm flex flex-col justify-between" data-purpose="game-card">
+<div>
+<div class="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-navy/5 mb-3">
+<img alt="Crimson Arena Cover" class="w-full h-full object-cover opacity-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyMSLPQyUHRj7k3nBemZz2goVxYGOI0EaNyIazYEhk-uT8P9hZuJp2HZzdLM9ArAuAhAr2BBCka2MOpW8rtAeoeZx_hP2COzwlb1aDuBrPvOTiXWrMPLf88ad9tvw1MGw23w5-kjg4Bo1Ra5eQOfPfKdHR_H3HpXxuoD21FcKsSJT5CeGRi44iIkJCdXPxm8GPC6xI1Psh8-PipiSMFmPlJUAQCqjUfQmy2LdnNl1O0evV9DyFrNMsIw"/>
+<!-- Sold out pill badge -->
+<span class="absolute top-2.5 left-2.5 bg-olive text-cream text-[10px] font-extrabold px-2.5 py-1 rounded-full shadow-sm tracking-wide">
+                Sold out
+              </span>
+</div>
+<span class="text-[11px] font-bold text-olive uppercase tracking-wider block">ACTION</span>
+<h2 class="text-lg font-extrabold text-navy mt-0.5">Crimson Arena</h2>
+<p class="text-xs text-greyBlue mt-1 font-medium leading-relaxed">Playful sparring tournaments in a sun-drenched canyon.</p>
+</div>
+<div class="mt-4 flex items-center justify-between gap-3">
+<span class="px-2.5 py-1 bg-peach/40 text-navy font-extrabold text-sm rounded-lg">29.99 €</span>
+<button class="flex-1 py-2 px-4 bg-greyBlue text-navy font-bold text-sm rounded-lg cursor-not-allowed opacity-90 text-center" disabled="">
+              Sold out
+            </button>
+</div>
+</article>
+<!-- 9. Realm Architects -->
+<article class="bg-cream border border-greyBlue rounded-card p-3 shadow-sm flex flex-col justify-between" data-purpose="game-card">
+<div>
+<div class="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-navy/5 mb-3">
+<img alt="Realm Architects Cover" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCopaDjmc1Ec6GPegHcH6wIHyy9ZFP81TYSXPGNDfp6HxrqeDUH6qCqwN6MmPAzO5dorsrVO9yQ89l2BEdhCm8ODnHVn0sJeNqH9QN0T9H2aI9ks38PRRzoHVGiz0t8DBde-GPEZ2ccLEgsH1UEMHRIZl5_ZLv4hUEfqntbyJtGX06O8w2B1DcSlXtIv1rpGPBdAhcjFY9Hbv4zBaNRIxIfdRqV9T5AE1kVDsdvOW6gCVJxp96lv37yIQ"/>
+</div>
+<span class="text-[11px] font-bold text-olive uppercase tracking-wider block">STRATEGY</span>
+<h2 class="text-lg font-extrabold text-navy mt-0.5">Realm Architects</h2>
+<p class="text-xs text-greyBlue mt-1 font-medium leading-relaxed">Design tiny cobblestone hamlets and tea plantations.</p>
+</div>
+<div class="mt-4 flex items-center justify-between gap-3">
+<span class="px-2.5 py-1 bg-peach/40 text-navy font-extrabold text-sm rounded-lg">26.00 €</span>
+<button class="flex-1 py-2 px-4 bg-softBlue text-navy font-bold text-sm rounded-lg shadow-sm hover:brightness-95 active:scale-[0.98] transition text-center">
+              Add to cart
+            </button>
+</div>
+</article>
+<!-- 10. Star Merchants -->
+<article class="bg-cream border border-greyBlue rounded-card p-3 shadow-sm flex flex-col justify-between" data-purpose="game-card">
+<div>
+<div class="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-navy/5 mb-3">
+<img alt="Star Merchants Cover" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXH4rLcZ7_9YrWiIEyZ45tsM-WXkNrqHZ-gRi-yOB1u9YjhEXWK6n9j-MWhmDQUsCRF8qBSy8iofwQuu-G28-T2G6rXcYiIoLk5kodXVlN3ZdfEz3bx3K7UG3vINj8e4h00IDdy7ZZVDxBjIQYSgoZo2iMyjuXd9snnSOP9a1UPHV_hPk4sbaUqFSxL2-sgXV9KHvSgafOcwaDBP47tcmwJjIGydY9gbh46bpMyBxPj99RPS9EQ7Rzdw"/>
+</div>
+<span class="text-[11px] font-bold text-olive uppercase tracking-wider block">STRATEGY</span>
+<h2 class="text-lg font-extrabold text-navy mt-0.5">Star Merchants</h2>
+<p class="text-xs text-greyBlue mt-1 font-medium leading-relaxed">Trade rare spices and starlight yarn between tranquil moons.</p>
+</div>
+<div class="mt-4 flex items-center justify-between gap-3">
+<span class="px-2.5 py-1 bg-peach/40 text-navy font-extrabold text-sm rounded-lg">23.50 €</span>
+<button class="flex-1 py-2 px-4 bg-softBlue text-navy font-bold text-sm rounded-lg shadow-sm hover:brightness-95 active:scale-[0.98] transition text-center">
+              Add to cart
+            </button>
+</div>
+</article>
+<!-- 11. Tiny Tactics -->
+<article class="bg-cream border border-greyBlue rounded-card p-3 shadow-sm flex flex-col justify-between" data-purpose="game-card">
+<div>
+<div class="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-navy/5 mb-3">
+<img alt="Tiny Tactics Cover" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8QgO109El6H1YE0kVmM050RtNjmHwe1KeLZleVcYAECDR4csqZhny_-1JmPmrV_ATRHVoyJqXD58Z3IeqDWchmIhysk3_iUnQ_fMg5SJMww9AwJs7aZ4HtKhS90Rl_PjTiCAgko36SUmYI4SBXTIS3RKRbzfgR8gW2sSLoGl6VAkVzmbExQ0KnA2nQftcOXmLO50GUqayvdwSUaImWXrFvScm4Og0aPwEQs9DHUnUBlkInIODslou3w"/>
+</div>
+<span class="text-[11px] font-bold text-olive uppercase tracking-wider block">STRATEGY</span>
+<h2 class="text-lg font-extrabold text-navy mt-0.5">Tiny Tactics</h2>
+<p class="text-xs text-greyBlue mt-1 font-medium leading-relaxed">Turn-based forest skirmishes on charming wooden boards.</p>
+</div>
+<div class="mt-4 flex items-center justify-between gap-3">
+<span class="px-2.5 py-1 bg-peach/40 text-navy font-extrabold text-sm rounded-lg">15.00 €</span>
+<button class="flex-1 py-2 px-4 bg-softBlue text-navy font-bold text-sm rounded-lg shadow-sm hover:brightness-95 active:scale-[0.98] transition text-center">
+              Add to cart
+            </button>
+</div>
+</article>
+<!-- 12. Clockwork Wars -->
+<article class="bg-cream border border-greyBlue rounded-card p-3 shadow-sm flex flex-col justify-between" data-purpose="game-card">
+<div>
+<div class="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-navy/5 mb-3">
+<img alt="Clockwork Wars Cover" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWBVNne28gEvgY92KXEDH-kbEtAcEO-wJro-syhQ2707VNxrgSMdMijq2js_l3OjkA6F_bd2RsRoyX_nPOfj26WEy7elB0pdg-kp8YsQ1DwXKRUMMsyW7khucTYlqrao-NBoiUGNBHDxFX8gEB201KhpwEF9V8Aqi4qWZISJvjyz7D5vwXvfqu2twsH74lMnlMnnYTOmrdjwmjmIqB-7IuOMA8WnXUGuXtcCW3YWaiivrmwcBoMQZ5GQ"/>
+</div>
+<span class="text-[11px] font-bold text-olive uppercase tracking-wider block">STRATEGY</span>
+<h2 class="text-lg font-extrabold text-navy mt-0.5">Clockwork Wars</h2>
+<p class="text-xs text-greyBlue mt-1 font-medium leading-relaxed">Tinker with miniature steam engines and tactical gizmos.</p>
+</div>
+<div class="mt-4 flex items-center justify-between gap-3">
+<span class="px-2.5 py-1 bg-peach/40 text-navy font-extrabold text-sm rounded-lg">28.00 €</span>
+<button class="flex-1 py-2 px-4 bg-softBlue text-navy font-bold text-sm rounded-lg shadow-sm hover:brightness-95 active:scale-[0.98] transition text-center">
+              Add to cart
+            </button>
+</div>
+</article>
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: Footer -->
+<footer class="bg-cream border-t border-greyBlue/30 py-6 px-4 text-center mt-auto" data-purpose="site-footer">
+<p class="text-xs font-semibold text-greyBlue">
+        © 2026 PixelPrat · Cozy games
+      </p>
+</footer>
+<!-- END: Footer -->
+</div>
+</body></html>
