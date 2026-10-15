@@ -17,3 +17,14 @@ export type LiniaCarro = {
   producteId: number;
   unitats: number;
 };
+export type LiniaResum = {
+  nom: string;
+  unitats: number;
+  subtotal: number;
+};
+
+export type ResumCompra = {
+  numero: string;
+  linies: LiniaResum[];
+  total: number;
+};

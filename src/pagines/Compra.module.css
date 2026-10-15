@@ -1,0 +1,85 @@
+.disposicio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--espai-4);
+  align-items: start;
+}
+
+.formulari {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espai-2);
+}
+
+.camp {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.camp label {
+  font-weight: 700;
+}
+
+.camp input[type="text"],
+.camp input[type="email"],
+.camp select {
+  padding: 0.6rem var(--espai-2);
+  border: 1px solid var(--color-vora);
+  border-radius: var(--radi-targeta);
+  background: var(--color-fons);
+  color: var(--color-text);
+  font: inherit;
+}
+
+/* Un campo con error se marca con borde grueso del color de "esgotat" */
+.camp [aria-invalid="true"] {
+  border: 2px solid var(--color-esgotat);
+}
+
+.condicions {
+  display: flex;
+  align-items: center;
+  gap: var(--espai-1);
+  font-weight: 400;
+}
+
+.error {
+  margin: 0;
+  color: var(--color-esgotat);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.resum {
+  padding: var(--espai-3);
+  border: 1px solid var(--color-vora);
+  border-radius: var(--radi-targeta);
+}
+
+.resum h2 {
+  margin-top: 0;
+}
+
+.llista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espai-1);
+}
+
+.llista li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espai-2);
+}
+
+.total {
+  margin-bottom: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}

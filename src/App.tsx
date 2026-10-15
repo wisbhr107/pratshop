@@ -7,6 +7,8 @@ import Inici from "./pagines/Inici";
 import Cataleg from "./pagines/Cataleg";
 import FitxaProducte from "./pagines/FitxaProducte";
 import Carro from "./pagines/Carro";
+import Compra from "./pagines/Compra";
+import Confirmacio from "./pagines/Confirmacio";
 import NoTrobat from "./pagines/NoTrobat";
 
 const CLAU_CARRO = "pratshop-carro";
@@ -29,7 +31,9 @@ function llegirCarro(): LiniaCarro[] {
         typeof l.producteId === "number" &&
         "unitats" in l &&
         typeof l.unitats === "number" &&
-        PRODUCTES.some((p) => p.id === l.producteId && l.unitats >= 1 && l.unitats <= p.estoc),
+        PRODUCTES.some(
+          (p) => p.id === l.producteId && l.unitats >= 1 && l.unitats <= p.estoc,
+        ),
     );
   } catch {
     return [];
@@ -113,6 +117,11 @@ const App = () => {
             />
           }
         />
+        <Route
+          path="compra"
+          element={<Compra carro={carro} onBuidar={buidarCarro} />}
+        />
+        <Route path="confirmacio" element={<Confirmacio />} />
         <Route path="*" element={<NoTrobat />} />
       </Route>
     </Routes>
