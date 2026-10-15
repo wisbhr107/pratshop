@@ -1,0 +1,38 @@
+.selector {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-vora);
+  border-radius: var(--radi-xip);
+  overflow: hidden;
+}
+
+.boto {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.boto:hover:not(:disabled) {
+  background: var(--color-accent);
+  color: var(--color-text-sobre-marca);
+}
+
+.boto:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.boto:focus-visible {
+  outline: 3px solid var(--color-marca);
+  outline-offset: -3px;
+}
+
+.valor {
+  min-width: 2.5rem;
+  text-align: center;
+  font-weight: 700;
+}

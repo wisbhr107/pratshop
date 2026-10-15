@@ -1,12 +1,10 @@
 :root {
   --color-bg: #f4f1ea;
   --color-surface: #ffffff;
-  --color-text: #2c2e45;
   --color-text-muted: #9ba4c4;
   --color-primary: #7a9ecc;
   --color-primary-hover: #3c608b;
   --color-secondary: #f2c6b8;
-  --color-accent: #6b705c;
   --color-border: #9ba4c4;
   --color-white: #ffffff;
   --color-soldout: #6b705c;
@@ -55,4 +53,21 @@ a {
 button {
   font-family: inherit;
   cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-fons: #2C2E45;
+    --color-bg: #2C2E45;
+    --color-surface: #2C2E45;
+    --color-text: #F4F1EA;
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--color-marca);
+  outline-offset: 2px;
 }
