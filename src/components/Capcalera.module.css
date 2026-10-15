@@ -1,0 +1,84 @@
+.capcalera {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.contenidor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--color-text);
+}
+
+.navegacio {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.enllac {
+  color: var(--color-text-muted);
+  font-weight: 600;
+  padding-bottom: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.enllac:hover {
+  color: var(--color-text);
+}
+
+.enllacActiu {
+  color: var(--color-text);
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.accions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.botoCarro {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.insignia {
+  position: absolute;
+  top: -0.4rem;
+  right: -0.6rem;
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

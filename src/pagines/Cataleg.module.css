@@ -1,0 +1,60 @@
+.cerca {
+  width: 100%;
+  max-width: 480px;
+  padding: 0.7rem var(--espai-2);
+  border: 1px solid var(--color-vora);
+  border-radius: var(--radi-xip);
+  background: var(--color-fons);
+  color: var(--color-text);
+  font: inherit;
+}
+
+.cerca:focus-visible {
+  outline: 3px solid var(--color-marca);
+  outline-offset: 2px;
+}
+
+.filtres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espai-1);
+  margin: var(--espai-2) 0;
+}
+
+.xip {
+  padding: 0.4rem var(--espai-2);
+  border: 1px solid var(--color-vora);
+  border-radius: var(--radi-xip);
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.xipActiu {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-text-sobre-marca);
+  font-weight: 700;
+}
+
+.xip:focus-visible {
+  outline: 3px solid var(--color-marca);
+  outline-offset: 2px;
+}
+
+.comptador {
+  color: var(--color-vora);
+  font-size: 0.875rem;
+}
+
+.buit {
+  padding: var(--espai-4) 0;
+  text-align: center;
+}
+
+.quadricula {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--espai-3);
+}

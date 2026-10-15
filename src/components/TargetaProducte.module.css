@@ -1,0 +1,105 @@
+.targeta {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-fons);
+  border: 1px solid var(--color-vora);
+  border-radius: var(--radi-targeta);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.08);
+}
+
+.esgotada .portada img {
+  opacity: 0.5;
+}
+
+.portada {
+  position: relative;
+  aspect-ratio: 1;
+  background: var(--color-vora);
+}
+
+.portada img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.etiqueta {
+  position: absolute;
+  top: var(--espai-1);
+  left: var(--espai-1);
+  padding: 0.2rem 0.7rem;
+  border-radius: var(--radi-xip);
+  background: var(--color-esgotat);
+  color: var(--color-text-clar);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.cos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espai-1);
+  padding: var(--espai-2);
+  flex: 1;
+}
+
+.categoria {
+  color: var(--color-esgotat);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.titol {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.titol a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.titol a:hover {
+  text-decoration: underline;
+}
+
+.descripcio {
+  margin: 0;
+  color: var(--color-vora);
+  font-size: 0.875rem;
+  flex: 1;
+}
+
+.preu {
+  margin: 0;
+  font-weight: 700;
+}
+
+.boto {
+  padding: 0.6rem var(--espai-2);
+  border: none;
+  border-radius: var(--radi-targeta);
+  background: var(--color-marca);
+  color: var(--color-text-sobre-marca);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.boto:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+.boto:disabled {
+  background: var(--color-vora);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.boto:focus-visible,
+.titol a:focus-visible {
+  outline: 3px solid var(--color-marca);
+  outline-offset: 3px;
+}
