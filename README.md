@@ -1,32 +1,61 @@
-# React + TypeScript + Vite
+# PixelPrat — PratShop v1
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+PixelPrat es una tienda online de videojuegos desarrollada con React 19, TypeScript y Vite. Este proyecto forma parte de la práctica PR1 del módulo 0488 de segundo de DAM.
 
-Currently, two official plugins are available:
+La aplicación permite consultar el catálogo de videojuegos, ver los detalles de cada producto y recorrer el proceso de compra.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Autor
 
-## React Compiler
+Nombre y apellidos: Wassim Bouhjar
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologías utilizadas
 
-## Expanding the Oxlint configuration
+- React 19
+- TypeScript
+- Vite
+- React Router
+- CSS Modules
+- clsx
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Diseño del proyecto
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+El diseño se ha realizado con Stitch. Aquí se encuentran los recursos utilizados durante el desarrollo:
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+- **Proyecto en Stitch:** https://stitch.withgoogle.com/projects/14727238535670231928
+- **Capturas del diseño:** `docs/disseny/`
+- **Código generado por Stitch:** `docs/generat/`
+- **Prompts utilizados:** `docs/generat/prompts.md`
+
+## Cómo ejecutar el proyecto
+
+Para ejecutar la aplicación en local, sigue estos pasos:
+
+1. Clona o descarga el repositorio.
+2. Abre una terminal en la carpeta del proyecto.
+3. Instala las dependencias:
+
+   ```bash
+   npm install
+   ```
+
+4. Inicia el servidor de desarrollo:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Abre en el navegador la dirección que aparece en la terminal.
+
+## Páginas de la aplicación
+
+- `/` — Página principal.
+- `/cataleg` — Catálogo de videojuegos.
+- `/producte/:id` — Detalles de un videojuego.
+- `/carro` — Carrito de la compra.
+- `/compra` — Proceso de compra.
+- `/confirmacio` — Confirmación de la compra.
+- `404` — Página para rutas que no existen.
+
+---
+
+Proyecto realizado para la práctica PR1 del módulo 0488 — DAM2.
