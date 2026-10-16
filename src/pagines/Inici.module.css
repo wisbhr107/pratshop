@@ -4,3 +4,10 @@
   align-items: flex-start;
   gap: var(--espai-2);
 }
+
+.quadricula {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--espai-3);
+  width: 100%;
+}

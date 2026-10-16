@@ -17,7 +17,13 @@ export default function FitxaProducte({ onAfegir }: Props) {
   // Los hooks siempre van al principio, antes de cualquier return
   const { id } = useParams();
   const navigate = useNavigate();
-  const [quantitat, setQuantitat] = useState(1);
+
+  // Guardamos la cantidad junto con el id del producto al que pertenece
+  const [seleccio, setSeleccio] = useState({ id, quantitat: 1 });
+
+  // Si el producto de la URL ya no es el guardado, la cantidad vuelve a 1.
+  // Es un valor derivado: se calcula, no se guarda.
+  const quantitat = seleccio.id === id ? seleccio.quantitat : 1;
 
   // useParams devuelve texto, así que lo convertimos a número
   const producte = PRODUCTES.find((p) => p.id === Number(id));
@@ -30,10 +36,14 @@ export default function FitxaProducte({ onAfegir }: Props) {
   const categoria = CATEGORIES.find((c) => c.id === producte.categoriaId);
   const esgotat = producte.estoc === 0;
 
+  function canviaQuantitat(nova: number) {
+    setSeleccio({ id, quantitat: nova });
+  }
+
   function afegir() {
     if (!producte) return;
     onAfegir(producte.id, quantitat);
-    setQuantitat(1);
+    setSeleccio({ id, quantitat: 1 });
   }
 
   return (
@@ -64,7 +74,7 @@ export default function FitxaProducte({ onAfegir }: Props) {
               <SelectorQuantitat
                 valor={quantitat}
                 maxim={producte.estoc}
-                onCanvi={setQuantitat}
+                onCanvi={canviaQuantitat}
               />
               <button type="button" className={styles.afegir} onClick={afegir}>
                 Afegir al carro

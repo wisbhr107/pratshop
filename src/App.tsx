@@ -13,6 +13,23 @@ import NoTrobat from "./pagines/NoTrobat";
 
 const CLAU_CARRO = "pratshop-carro";
 
+// Comprueba que un dato desconocido tiene forma de LiniaCarro y que
+// apunta a un producto real, con unidades entre 1 y el stock.
+function esLiniaValida(l: unknown): l is LiniaCarro {
+  if (typeof l !== "object" || l === null) return false;
+  if (!("producteId" in l) || !("unitats" in l)) return false;
+
+  // Guardamos los valores en variables: así TypeScript recuerda su tipo
+  const { producteId, unitats } = l;
+  if (typeof producteId !== "number" || typeof unitats !== "number") {
+    return false;
+  }
+
+  return PRODUCTES.some(
+    (p) => p.id === producteId && unitats >= 1 && unitats <= p.estoc,
+  );
+}
+
 // Lee el carro guardado. Si algo falla (no hay datos, JSON roto, datos raros),
 // devuelve un carro vacío en lugar de romper la aplicación.
 function llegirCarro(): LiniaCarro[] {
@@ -23,18 +40,7 @@ function llegirCarro(): LiniaCarro[] {
     const dades: unknown = JSON.parse(text);
     if (!Array.isArray(dades)) return [];
 
-    return dades.filter(
-      (l: unknown): l is LiniaCarro =>
-        typeof l === "object" &&
-        l !== null &&
-        "producteId" in l &&
-        typeof l.producteId === "number" &&
-        "unitats" in l &&
-        typeof l.unitats === "number" &&
-        PRODUCTES.some(
-          (p) => p.id === l.producteId && l.unitats >= 1 && l.unitats <= p.estoc,
-        ),
-    );
+    return dades.filter(esLiniaValida);
   } catch {
     return [];
   }
@@ -100,7 +106,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Disposicio unitatsCarro={totalUnitats} />}>
-        <Route index element={<Inici />} />
+        <Route index element={<Inici onAfegir={afegirAlCarro} />} />
         <Route path="cataleg" element={<Cataleg onAfegir={afegirAlCarro} />} />
         <Route
           path="producte/:id"
